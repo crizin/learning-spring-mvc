@@ -1,15 +1,22 @@
 package net.crizin.learning.controller;
 
 import net.crizin.learning.AbstractControllerTest;
+import net.crizin.learning.config.MvcConfig;
+import net.crizin.learning.config.RootConfig;
 import net.crizin.learning.entity.Member;
 import net.crizin.learning.entity.Note;
 import net.crizin.learning.security.AuthenticationUser;
 import org.apache.commons.lang3.math.NumberUtils;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.data.domain.Page;
 import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockMultipartFile;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.ModelMap;
 
 import static org.junit.Assert.*;
@@ -18,6 +25,10 @@ import static org.springframework.security.test.web.servlet.request.SecurityMock
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+@Transactional
+@WebAppConfiguration
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(classes = {RootConfig.class, MvcConfig.class})
 public class DefaultControllerTest extends AbstractControllerTest {
 	@Test
 	public void testIndex() throws Exception {
