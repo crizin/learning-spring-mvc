@@ -2,3 +2,6 @@
 /.idea
 /build
 /classes
+/out
+/*.ipr
+/*.iws
