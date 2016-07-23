@@ -1,6 +1,7 @@
 group 'net.crizin.learning'
 version '1.0-SNAPSHOT'
 
+apply plugin: 'idea'
 apply plugin: 'java'
 apply plugin: 'war'
 
