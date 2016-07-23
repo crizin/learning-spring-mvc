@@ -1,0 +1,131 @@
+body {
+	margin: 10px 0 20px;
+}
+
+.table {
+	table-layout: fixed;
+}
+
+.table th, .table td {
+	text-align: center;
+}
+
+.spacer-1 {
+	margin-top: 10px;
+}
+
+.spacer-2 {
+	margin-top: 20px;
+}
+
+.spacer-3 {
+	margin-top: 30px;
+}
+
+.spacer-4 {
+	margin-top: 40px;
+}
+
+.spacer-5 {
+	margin-top: 50px;
+}
+
+.text-ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+#tag-box {
+	border: 1px solid #ccc;
+	border-radius: 0.25rem;
+	cursor: text;
+	padding: 0.375rem 0.75rem;
+}
+
+#tag-box .tag {
+	display: inline-block;
+	position: relative;
+	border-radius: 0.25rem;
+	background-color: #31b0d5;
+	color: #fff;
+	font-size: 0.8rem;
+	white-space: nowrap;
+	cursor: default;
+	padding: 0.2rem 1.5rem 0.2rem 0.5rem;
+	margin: 0.2rem 0.5rem 0.2rem 0;
+}
+
+#tag-box .tag span {
+	font-family: Arial, sans-serif;
+}
+
+#tag-box .tag .tag-i {
+	position: absolute;
+	top: 0.75rem;
+	right: 0.5rem;
+	text-align: center;
+	width: 10px;
+	color: #fff;
+	cursor: pointer;
+	height: 0;
+	line-height: 0.1rem;
+	text-decoration: none;
+}
+
+#tag-box .type-zone {
+	border: 0;
+	height: auto;
+	width: auto;
+	min-width: 20px;
+	display: inline-block;
+}
+
+#tag-box .type-zone:focus {
+	outline: none;
+}
+
+#note-list .col-writer {
+	width: 10rem;
+}
+
+#note-list .col-title-content {
+	width: auto;
+}
+
+#note-list .col-created-at {
+	width: 8rem;
+}
+
+#note-list .title-content a {
+	display: block;
+	text-decoration: none;
+	color: inherit;
+}
+
+#note-list .summary {
+	font-size: 0.8rem;
+	font-style: italic;
+	color: #bbb;
+}
+
+#note-view .untitled {
+	font-style: italic;
+	color: #bbb;
+}
+
+#note-view .content {
+	border-top: 0.1rem solid #ccc;
+	padding: 10px 0;
+	margin: 10px 0;
+}
+
+#note-view .tags {
+	border-top: 0.1rem solid #ccc;
+	padding: 10px 0;
+	margin: 10px 0;
+}
+
+#note-view .tags .tag {
+	margin-right: 5px;
+}

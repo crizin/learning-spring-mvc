@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head"></head>
+<body>
+<div id="note-view" class="container">
+	<div th:replace="fragments :: header"></div>
+
+	<div class="spacer-2">
+		<a class="btn btn-warning pull-xs-right" th:href="@{/note/{noteId}/edit(noteId=${note.id})}" th:if="${isMyNote}">
+			<span class="fa fa-pencil-square-o"></span> Edit note
+		</a>
+		<h2 th:unless="${isMyNote}"><span class="label label-pill label-info pull-right" th:text="${note.member.userName} + '\'s note'">User name's note</span></h2>
+		<h1 th:text="${note.title} ? ${note.title} : 'Untitled'" th:classappend="${note.title == null} ? untitled">Title</h1>
+	</div>
+
+	<div class="content" th:utext="${#strings.replace(#strings.escapeXml(note.content), T(System).getProperty('line.separator'), '<br>')}"></div>
+
+	<div class="tags" th:unless="${#sets.isEmpty(note.tags)}">
+		<a class="tag label label-info" th:href="@{/tag/{tagName}(tagName=${tag.name})}" th:each="tag : ${note.tags}" th:text="${'#' + tag.name}">#Tag</a>
+	</div>
+
+	<div th:if="${note.imagePath}">
+		<img class="img-fluid" th:src="@{/note/{noteId}/attachment/{imagePath}(noteId=${note.id},imagePath=${note.imagePath})}" alt="Attachment file.">
+	</div>
+
+	<div th:replace="fragments :: scripts"></div>
+</div>
+</body>
+</html>

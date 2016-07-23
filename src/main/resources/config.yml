@@ -1,0 +1,21 @@
+dataSource:
+    dataSourceClassName: org.postgresql.ds.PGSimpleDataSource
+    poolSize: 10
+    idleTimeout: 600000
+    connectionTimeout: 30000
+    jdbc:
+        url: jdbc:postgresql://postgres:5432/postgres
+        userName: postgres
+        password: postgres
+
+hibernate:
+    showSql: true
+    formatSql: true
+    hbm2ddl.auto: create
+    dialect: org.hibernate.dialect.PostgreSQL94Dialect
+
+thymeleaf:
+    cacheable: false
+
+attachment:
+    path: /tmp

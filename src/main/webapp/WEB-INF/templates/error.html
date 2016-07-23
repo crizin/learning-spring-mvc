@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head"></head>
+<body>
+<div class="container">
+	<div th:replace="fragments :: header"></div>
+
+	<div class="jumbotron spacer-2">
+		<h1 class="display-3" th:text="${errorTitle}">Error title</h1>
+		<p class="lead" th:text="${errorDetails}">Error details</p>
+		<hr class="m-y-2">
+		<p class="lead">
+			<a class="btn btn-primary btn-lg" th:href="@{/}" role="button">Back to site home</a>
+		</p>
+	</div>
+
+	<div th:replace="fragments :: scripts"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head"></head>
+<body>
+<div class="container">
+	<div th:replace="fragments :: header"></div>
+
+	<div class="alert alert-success spacer-2" th:if="${notes.numberOfElements == 0}">No notes.</div>
+
+	<table id="note-list" class="table table-hover table-sm spacer-2">
+		<colgroup>
+			<col class="col-writer">
+			<col class="col-title-content">
+			<col class="col-created-at">
+		</colgroup>
+		<thead class="sr-only">
+		<tr>
+			<th>Writer</th>
+			<th>Title and content</th>
+			<th>Created</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr th:each="note : ${notes}">
+			<td class="text-ellipsis text-xs-left" th:text="${note.member.userName}">Someone</td>
+			<td class="title-content text-ellipsis text-xs-left">
+				<a th:href="@{/note/{noteId}(noteId=${note.id})}">
+					<span th:text="${note.title}">Title</span>
+					<span th:text="${note.content}" class="summary">Content text</span>
+				</a>
+			</td>
+			<td th:text="${#temporals.format(note.createdAt, 'yyyy-MM-dd')}">1970-01-01</td>
+		</tr>
+		</tbody>
+	</table>
+
+	<nav th:replace="fragments :: pagination (${notes})"></nav>
+
+	<div th:replace="fragments :: scripts"></div>
+</div>
+</body>
+</html>

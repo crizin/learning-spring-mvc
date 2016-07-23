@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head"></head>
+<body>
+<div class="container">
+	<div th:replace="fragments :: header"></div>
+
+	<div class="row spacer-5">
+		<div class="col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
+			<form method="post" th:action="@{/sign-up}">
+				<div class="alert alert-danger" th:text="${error}" th:unless="${error == null}">
+					Some error text here.
+				</div>
+				<fieldset class="form-group">
+					<label for="user-name"><span class="fa fa-male" aria-hidden="true"></span> User Name</label>
+					<input type="text" class="form-control" id="user-name" name="userName" required th:attr="autofocus=${userName == null ? '' : null}" th:value="${userName}">
+				</fieldset>
+				<fieldset class="form-group">
+					<label for="password1"><span class="fa fa-lock" aria-hidden="true"></span> Password</label>
+					<input type="password" class="form-control" id="password1" name="password1" required th:attr="autofocus=${userName == null ? null : ''}">
+				</fieldset>
+				<fieldset class="form-group">
+					<label for="password2"><span class="fa fa-lock" aria-hidden="true"></span> Confirm Password</label>
+					<input type="password" class="form-control" id="password2" name="password2" required>
+				</fieldset>
+				<div class="spacer-2">
+					<button type="submit" class="btn btn-primary">Sign Up</button>
+					<a class="btn btn-link pull-right" th:href="@{/log-in}">Log in</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div th:replace="fragments :: scripts"></div>
+</body>
+</html>

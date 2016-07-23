@@ -1,0 +1,21 @@
+dataSource:
+    dataSourceClassName: org.h2.jdbcx.JdbcDataSource
+    poolSize: 10
+    idleTimeout: 600000
+    connectionTimeout: 30000
+    jdbc:
+        url: jdbc:h2:mem:test
+        userName: sa
+        password:
+
+hibernate:
+    showSql: false
+    formatSql: false
+    hbm2ddl.auto: create-drop
+    dialect: org.hibernate.dialect.H2Dialect
+
+thymeleaf:
+    cacheable: false
+
+attachment:
+    path: /tmp
