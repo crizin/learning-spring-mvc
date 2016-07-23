@@ -22,3 +22,4 @@ And then open [http://localhost:8080/](http://localhost:8080/) in your browser.
 - HikariCP 2.4.7
 - Spring Security 4.1.1
 - Gradle 2.14
+- Cucumber 1.2.4
