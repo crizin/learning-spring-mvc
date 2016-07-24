@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/crizin/learning-spring-mvc.svg?branch=master)](https://travis-ci.org/crizin/learning-spring-mvc)
+
 # What's this?
 
 An example project for learning Spring MVC 4
