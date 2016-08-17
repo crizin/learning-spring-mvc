@@ -16,8 +16,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.DigestUtils;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBody;
 
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -123,29 +123,21 @@ public class NoteService {
 		}
 	}
 
-	public boolean responseAttachment(HttpServletResponse response, Member viewer, int noteId, String imagePath) {
+	public Optional<StreamingResponseBody> responseAttachment(int noteId, String imagePath) {
 		if (StringUtils.isBlank(imagePath)) {
-			return false;
+			return Optional.empty();
 		}
 
 		Optional<Note> noteOptional = getNote(noteId);
 
 		if (!noteOptional.isPresent()) {
-			return false;
+			return Optional.empty();
 		}
 
 		if (!imagePath.equals(noteOptional.get().getImagePath())) {
-			return false;
+			return Optional.empty();
 		}
 
-		response.setContentType("application/octet-stream");
-
-		try {
-			Files.copy(Paths.get(attachmentPath, imagePath), response.getOutputStream());
-		} catch (IOException e) {
-			return false;
-		}
-
-		return true;
+		return Optional.of(outputStream -> Files.copy(Paths.get(attachmentPath, imagePath), outputStream));
 	}
 }

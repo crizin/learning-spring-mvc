@@ -15,10 +15,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Map;
@@ -87,12 +87,9 @@ public class DefaultController extends AbstractController {
 	}
 
 	@GetMapping("/note/{noteId}/attachment/{imagePath}")
-	public void viewAttachment(HttpServletRequest request, HttpServletResponse response, @PathVariable int noteId, @PathVariable String imagePath) {
-		Member currentMember = getCurrentMember(request);
-
-		if (!noteService.responseAttachment(response, currentMember, noteId, imagePath)) {
-			throw new UnknownResourceException("Not found attachment [id=" + noteId + ", imagePath=" + imagePath + "].");
-		}
+	public StreamingResponseBody viewAttachment(@PathVariable int noteId, @PathVariable String imagePath) {
+		return noteService.responseAttachment(noteId, imagePath)
+				.orElseThrow(() -> new UnknownResourceException("Not found attachment [id=" + noteId + ", imagePath=" + imagePath + "]."));
 	}
 
 	@PostMapping("/note")
