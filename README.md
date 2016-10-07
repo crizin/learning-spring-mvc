@@ -17,11 +17,11 @@ And then open [http://localhost:8080/](http://localhost:8080/) in your browser.
 # Using libraries or spec
 
 - Java 8
-- Spring MVC 4.3.1
+- Spring MVC 4.3
 - Servlet API 3.1
 - Thymeleaf 3.0
-- Hibernate 5.2.1 (JPA 2.1)
-- HikariCP 2.4.7
-- Spring Security 4.1.1
-- Gradle 2.14
+- Hibernate 5.2 (JPA 2.1)
+- HikariCP 2.5
+- Spring Security 4.1
+- Gradle 3.1
 - Cucumber 1.2.4
