@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/crizin/learning-spring-mvc.svg?branch=master)](https://travis-ci.org/crizin/learning-spring-mvc)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/47b85b9dd99f4b85a6011d06882a5200)](https://www.codacy.com/app/crizin/learning-spring-mvc?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=crizin/learning-spring-mvc&amp;utm_campaign=Badge_Grade)
 
 # What's this?
 
