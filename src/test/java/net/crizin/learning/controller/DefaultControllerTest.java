@@ -155,7 +155,7 @@ public class DefaultControllerTest extends AbstractControllerTest {
 
 		Note note = noteService.upsertNote(createDummyNote(member));
 
-		MvcResult m = mockMvc.perform(delete(String.format("/note/%d", note.getId()))
+		mockMvc.perform(delete(String.format("/note/%d", note.getId()))
 				.with(csrf())
 				.with(user(user)))
 				.andExpect(status().isOk())

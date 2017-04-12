@@ -80,7 +80,7 @@ public class PersistenceConfig {
 		jpaProperties.setProperty("hibernate.hbm2ddl.auto", String.valueOf(hibernateHbm2DdlAuto));
 		jpaProperties.setProperty("hibernate.physical_naming_strategy", String.valueOf(SnakeCasePhysicalNamingStrategy.class.getName()));
 
-		org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean localContainerEntityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
+		LocalContainerEntityManagerFactoryBean localContainerEntityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
 		localContainerEntityManagerFactoryBean.setDataSource(dataSource());
 		localContainerEntityManagerFactoryBean.setPackagesToScan("net.crizin.learning.entity");
 		localContainerEntityManagerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
