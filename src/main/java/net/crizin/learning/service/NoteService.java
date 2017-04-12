@@ -78,21 +78,21 @@ public class NoteService {
 
 	@Transactional
 	public Set<Tag> convertTags(Set<String> tags) {
-		tags = tags.stream()
+		Set<String> filteredTags = tags.stream()
 				.map(StringUtils::trimToNull)
 				.filter(Objects::nonNull)
 				.sorted()
 				.limit(MAX_TAG_COUNT)
 				.collect(Collectors.toSet());
 
-		Set<Tag> existingTags = tagRepository.findByNameIn(tags);
+		Set<Tag> existingTags = tagRepository.findByNameIn(filteredTags);
 
 		Set<String> existingTagNames = existingTags
 				.stream()
 				.map(Tag::getName)
 				.collect(Collectors.toSet());
 
-		Set<Tag> newTags = tags.stream()
+		Set<Tag> newTags = filteredTags.stream()
 				.filter(tag -> !existingTagNames.contains(tag))
 				.map(Tag::new)
 				.collect(Collectors.toCollection(TreeSet::new));
